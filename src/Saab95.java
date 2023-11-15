@@ -1,6 +1,5 @@
-package src;
 
-import src.Cars;
+//import src.Cars;
 
 import java.awt.*;
 

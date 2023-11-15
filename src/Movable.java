@@ -1,4 +1,4 @@
-package src;
+
 
 interface Movable {
     void move();
