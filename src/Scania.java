@@ -72,4 +72,6 @@ public class Scania extends Trucks {
         }
     }
 
+    //tjena mitt bena
+
 }
