@@ -74,6 +74,14 @@ public abstract class Cars implements Movable {
         return posY;
     }
 
+    public void setPosY(double place){
+        posY = place;
+    }
+
+    public void setPosX(double place){
+        posX = place;
+    }
+
     public void move() {
         switch (direction) {
             case "North":
