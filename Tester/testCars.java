@@ -36,8 +36,6 @@ public class testCars {
     @Test
     public void testColor() {
         assertTrue(saab95.getColor() == Color.red);
-        saab95.setColor(Color.black);
-        assertTrue(saab95.getColor() == Color.black);
     }
 
 
@@ -52,16 +50,16 @@ public class testCars {
 
     @Test
     public void testTurnLeft(){
-        assertTrue(saab95.direction == "North");
+        assertTrue(saab95.getDirection() == "North");
         saab95.turnLeft();
-        assertTrue(saab95.direction == "West");
+        assertTrue(saab95.getDirection() == "West");
     }
 
     @Test
     public void testTurnRight() {
-        assertTrue(saab95.direction == "North");
+        assertTrue(saab95.getDirection() == "North");
         saab95.turnRight();
-        assertTrue(saab95.direction == "East");
+        assertTrue(saab95.getDirection() == "East");
 
     }
 

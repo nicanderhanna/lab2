@@ -1,6 +1,3 @@
-package src;
-
-import src.Trucks;
 
 import java.awt.*;
 

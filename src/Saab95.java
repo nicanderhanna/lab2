@@ -9,7 +9,7 @@ public class Saab95 extends Cars {
 
 
     public Saab95(){
-        super(2, 125, Color.red, "src.Saab95");
+        super(2, 125, Color.red, "Saab95", "North");
         turboOn = false;
     }
 
