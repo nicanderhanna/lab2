@@ -7,12 +7,17 @@ public class Scania extends Trucks {
 
 
     public Scania() {
-        super(2, 400, Color.blue, "Scania", "North");
+        super(2, 400, Color.blue, "Scania",
+                "North");
         trailerAngle = 0;
     }
 
     public double speedFactor() {
         return 0;
+    }
+
+    public double getTrailerAngle(){
+        return trailerAngle;
     }
 
 
@@ -34,30 +39,46 @@ public class Scania extends Trucks {
         if (b) {
             System.out.println("Can't move trailer when Truck is in moving");
         }
-        trailerAngle = trailerAngle - amount;
-        if (trailerAngle < 0) {
+        else if (trailerAngle - amount < 0) {
             trailerAngle = 0;
+        }
+        else {trailerAngle = trailerAngle - amount;}
+    }
+
+
+
+    public void truckMove(){
+        if (trailerAngle > 0){
+            System.out.println("Truck can't move while trailer is up");
+        }
+        else{
+            this.move();
         }
     }
 
-    public double getTrailerAngle() {
-        return trailerAngle;
-    }
 
 
-    @Override
+
+
+
+
+
+
+
+
+/*    @Override
     public void move() {
-        double posX = this.getPosX();
-        double posY = this.getPosY();
-        double currentSpeed = this.getCurrentSpeed();
-        String direction = this.getDirection();
-        boolean b = this.trailerAngle != 0;
-        if (b) {
+        double posX = getPosX();
+        //double posY = getPosY();
+        double currentSpeed = getCurrentSpeed();
+        String direction = getDirection();
+        if (trailerAngle > 0) {
             System.out.println("Truck can't move while trailer is up");
-        } else {
+        }
+        else {
             switch (direction) {
                 case "North":
-                    posY = posY + currentSpeed;
+                    double posY = getPosY() + currentSpeed;
                     break;
                 case "South":
                     posY = posY - currentSpeed;
@@ -70,8 +91,6 @@ public class Scania extends Trucks {
                     break;
             }
         }
-    }
-
-    //tjena mitt bena
+    }*/
 
 }

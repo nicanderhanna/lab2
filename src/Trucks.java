@@ -3,7 +3,8 @@ import java.awt.*;
 
 public class Trucks extends Cars {
 
-    public Trucks(int nrDoors, double enginePower, Color color, String modelName, String direction) {
+    public Trucks(int nrDoors, double enginePower, Color color, String modelName,
+                  String direction) {
         super(nrDoors, enginePower, color, modelName, direction);
     }
 
@@ -12,4 +13,7 @@ public class Trucks extends Cars {
     public double speedFactor() {
         return 0;
     }
+
+
+
 }

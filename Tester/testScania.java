@@ -22,14 +22,34 @@ public class testScania {
         assertTrue(scania.getTrailerAngle() == 30);
         scania.trailerUp(100);
         assertTrue(scania.getTrailerAngle() == 70);
+        scania.startEngine();
+        scania.trailerUp(30);
+        assertTrue(scania.getTrailerAngle() == 0);
 
     }
 
     @Test
-    public void testScaniaMove(){
-        scania.startEngine();
-        scania.trailerUp(30);
+    public void testTrailerDown(){
+        scania.trailerDown(0);
         assertTrue(scania.getTrailerAngle() == 0);
+        scania.trailerUp(30);
+        assertTrue(scania.getTrailerAngle() == 30);
+        scania.trailerDown(25);
+        assertTrue(scania.getTrailerAngle() == 5);
+        scania.startEngine();
+        scania.trailerDown(3);
+        assertTrue(scania.getTrailerAngle() == 5);
+    }
+
+    @Test
+    public void testMove(){
+        scania.trailerUp(30);
+        scania.truckMove();
+        assertTrue(scania.getPosY() == 0);
+        scania.trailerDown(30);
+        scania.startEngine();
+        scania.truckMove();
+        assertTrue(scania.getPosY()==0.1);
     }
 
 }
