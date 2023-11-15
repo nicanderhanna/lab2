@@ -27,7 +27,7 @@ public class testScania {
 
     @Test
     public void testScaniaMove(){
-        scania.move();
+        scania.startEngine();
         scania.trailerUp(30);
         assertTrue(scania.getTrailerAngle() == 0);
     }

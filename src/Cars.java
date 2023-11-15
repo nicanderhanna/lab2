@@ -41,8 +41,8 @@ public abstract class Cars implements Movable {
     protected String getDirection() {
         return direction;
     }
-    protected void SetcurrentSpeed(double currentSpeed) {
-        this.currentSpeed = currentSpeed;
+    protected void startEngine() {
+        currentSpeed = 0.1;
     }
 
 

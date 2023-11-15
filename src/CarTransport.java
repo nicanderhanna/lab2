@@ -1,6 +1,3 @@
-package src;
-
-import src.Trucks;
 
 import java.awt.*;
 
@@ -9,7 +6,7 @@ public class CarTransport extends Trucks {
     String trailerAngle = "Down";
 
     public CarTransport(int nrDoors, double enginePower, Color color, String modelName) {
-        super(2, 100, Color.green, "Car Transport");
+        super(2, 100, Color.green, "Car Transport", "North");
     }
 
     public void trailerUp(){
@@ -21,5 +18,4 @@ public class CarTransport extends Trucks {
     }
 
 }
-    }
-            }
+

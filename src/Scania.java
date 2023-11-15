@@ -4,11 +4,10 @@ import java.awt.*;
 public class Scania extends Trucks {
 
     public double trailerAngle;
-    public double trailerUp;
 
 
     public Scania() {
-        super(2, 400, Color.blue, "src.Scania");
+        super(2, 400, Color.blue, "Scania", "North");
         trailerAngle = 0;
     }
 
@@ -16,19 +15,17 @@ public class Scania extends Trucks {
         return 0;
     }
 
-    protected void startEngine() {
-        SetcurrentSpeed(0.1);
-    }
 
     public void trailerUp(double amount) {
         boolean b = this.getCurrentSpeed() != 0;
         if (b) {
             System.out.println("Can't move trailer when Truck is in moving");
         }
-        trailerAngle = trailerAngle + amount;
-        if (trailerAngle > 70) {
+
+        else if (trailerAngle + amount > 70) {
             trailerAngle = 70;
         }
+        else{trailerAngle = trailerAngle + amount;}
 
     }
 
@@ -53,6 +50,7 @@ public class Scania extends Trucks {
         double posX = this.getPosX();
         double posY = this.getPosY();
         double currentSpeed = this.getCurrentSpeed();
+        String direction = this.getDirection();
         boolean b = this.trailerAngle != 0;
         if (b) {
             System.out.println("Truck can't move while trailer is up");
