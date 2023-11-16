@@ -20,11 +20,13 @@ public class testScania {
         assertTrue(scania.getTrailerAngle() == 0);
         scania.trailerUp(30);
         assertTrue(scania.getTrailerAngle() == 30);
-        scania.trailerUp(100);
-        assertTrue(scania.getTrailerAngle() == 70);
         scania.startEngine();
         scania.trailerUp(30);
-        assertTrue(scania.getTrailerAngle() == 0);
+        System.out.println(scania.getTrailerAngle());
+        assertTrue(scania.getTrailerAngle() == 30);
+        scania.stopEngine();
+        scania.trailerUp(100);
+        assertTrue(scania.getTrailerAngle() == 70);
 
     }
 
