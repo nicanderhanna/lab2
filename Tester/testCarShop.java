@@ -36,6 +36,16 @@ public class testCarShop {
         assertTrue(carShopCars.carsInShop.get(0) == carTransport);
         assertTrue(carShopCars.carsInShop.get(1) == scania);
         //carShopCars.loadCarsInShop(carShopVolvo); //we want this to not be accepted, so yaay!
+
     }
+    @Test
+    public void testUnloadCarsInShop() {
+        carShopCars.loadCarsInShop(volvo);
+        carShopCars.loadCarsInShop(saab);
+        carShopCars.unloadCarsInShop(volvo);
+        assertTrue(carShopCars.carsInShop.get(0) != volvo);
+        assertTrue(carShopCars.carsInShop.get(0) == saab);
+    }
+
 
 }

@@ -1,7 +1,7 @@
 
 import java.awt.*;
 
-public class CarTransport extends Trucks {
+public class CarTransport extends Cars {
 
     Boolean trailerUp = false;
 
@@ -12,7 +12,6 @@ public class CarTransport extends Trucks {
     }
 
     public void trailerUp() {
-        //boolean b = this.getCurrentSpeed() != 0;
         if (this.getCurrentSpeed() != 0) {
             System.out.println("Can't move trailer when Truck is in moving");
         } else {
@@ -21,7 +20,6 @@ public class CarTransport extends Trucks {
     }
 
     public void trailerDown() {
-        //boolean b = this.getCurrentSpeed() != 0;
         if (this.getCurrentSpeed() != 0) {
             System.out.println("Can't move trailer when Truck is in moving");
 
@@ -83,6 +81,19 @@ public class CarTransport extends Trucks {
         }
     }
 
+
+
+    public double speedFactor() {
+        if (carsOnTruck[0] == null) {
+            return 55;
+        }
+        else if (carsOnTruck[0] != null && carsOnTruck[1] == null ) {
+            return 40;
+        }
+        else {
+            return 25;
+        }
+    }
 
     @Override
     public void move(){

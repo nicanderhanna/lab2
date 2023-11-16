@@ -1,7 +1,7 @@
 
 import java.awt.*;
 
-public class Scania extends Trucks {
+public class Scania extends Cars {
 
     public double trailerAngle;
 
@@ -41,7 +41,11 @@ public class Scania extends Trucks {
         else {trailerAngle = trailerAngle - amount;}
     }
 
-@Override
+    public double speedFactor() {
+        return 50;
+    }
+
+    @Override
     public void move() {
         String direction = getDirection();
         double posY = getPosY();
