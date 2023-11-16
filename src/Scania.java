@@ -3,7 +3,7 @@ import java.awt.*;
 
 public class Scania extends Cars {
 
-    public double trailerAngle;
+    private double trailerAngle;
 
 
     public Scania() {

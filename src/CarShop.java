@@ -1,15 +1,15 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class CarShop <T> {
+public class CarShop <T> { //T är en viss typparamenter eftersom vissa verkstäder endast kunde ta emot vissa modeller.
 
     List<T> carsInShop;
     private int maxNrCars;
 
+    //sätter ett maxantal bilar och skapar en ny arraylist i carshop
     public CarShop(int maxNrCars) {
-        this.maxNrCars = maxNrCars;
-        this.carsInShop = new ArrayList<>(maxNrCars);
-
+            this.maxNrCars = maxNrCars;
+            this.carsInShop = new ArrayList<>(maxNrCars);
     }
 
     public void loadCarsInShop(T vehicle) {
@@ -24,17 +24,17 @@ public class CarShop <T> {
     }
 
     private int checkIfCarIsInShop(T vehicle){
-        int x = 10;
+        int x = -1;
         for ( int i = 0 ; i < carsInShop.size(); i++){
             if ( vehicle == carsInShop.get(i))
-            { x = i;}
+            { x = i;} //för varje itteration av loopen
         }
         return x;
     }
 
     public void unloadCarsInShop (T vehicle) {
         int x = checkIfCarIsInShop(vehicle);
-        if (x != 10){
+        if (x != -1){
             carsInShop.remove(x);
         }
         else{
@@ -42,37 +42,6 @@ public class CarShop <T> {
         }
     }
 }
-
-/*
-
-        public void unloadCarsFromShop(T vehicle){
-            int carInList = checkIfCarIsInList(car);
-            if (carInList == 10) {
-                System.out.println("Car not on truck");
-            }
-            else if (carInList == getNrOfCarsInTruck() -1){
-                carIsShop.remove(carInList);
-                car.setPosY(this.getPosY() + 0.1);
-                car.setPosX(this.getPosX() + 0.1);
-            }
-        }
-*/
-
-
-
-
-/*    public void unloadCar(Cars car) {
-        int carInList = checkIfCarIsInList(car);
-        if (carInList == 10) {
-            System.out.println("Car not on truck");
-        }
-        else if (carInList == getNrOfCarsInTruck() -1){
-            carsOnTruck[getNrOfCarsInTruck()-1] = null;
-            car.setPosY(this.getPosY() + 0.1);
-            car.setPosX(this.getPosX() + 0.1);
-        }
-    }
-    }*/
 
 
 

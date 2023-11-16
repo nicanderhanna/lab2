@@ -24,8 +24,6 @@ public abstract class Cars implements Movable {
         this.color = color;
         this.modelName = modelName;
         this.direction = direction;
-        this.posX = posX;
-        this.posY = posY;
         stopEngine();
 
     }

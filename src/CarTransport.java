@@ -1,11 +1,11 @@
 
 import java.awt.*;
 
-public class CarTransport extends Cars {
+public class CarTransport extends Cars { //Är en subklass till cars
 
-    Boolean trailerUp = false;
+    Boolean trailerUp = false; //har bara två lägen. Den är antingen uppe eller nere. Börjar nere.
 
-    Cars[] carsOnTruck = new Cars[3];
+    Cars[] carsOnTruck = new Cars[3]; //vektor, går från 0 till 2 i detta fall. Kan ej lägga till fler element.
 
     public CarTransport() {
         super(2, 100, Color.green, "Car Transport", "North");
@@ -33,15 +33,20 @@ public class CarTransport extends Cars {
         int x = 0;
         for (int i = 0; i < carsOnTruck.length; i++) {
             if (carsOnTruck[i] != null) {
-                x= x+ 1;
+
+                x = x + 1;
             }
         }
         return x;
+        //sätter en variabel x = 0. Kör en for loop som går igenom alla element tills ett element är tomt.
+        //om alla plater är fulla returnerar den 3. Annars returnerar den den plats som är tom och sätter det som x.
+        //om det är den tredje som är tom så blir i 2 eftersom den går igeonom alla elemnent 0 till 2.
     }
 
     public void loadCar(Cars car){
         if (car instanceof CarTransport){
             System.out.println("The truck can't carry another car transport");
+            //vi kollar så att det inte får vara en car transport object som lastas.
         }
 
         else if (getNrOfCarsInTruck() == 3){
@@ -56,6 +61,10 @@ public class CarTransport extends Cars {
             carsOnTruck[getNrOfCarsInTruck()] = car;
             car.setPosY(this.getPosY());
             car.setPosX(this.getPosX());
+            //om det inte skiljer sig mer än 1 i både y och x led mellan distansen av car transport och bilen som ska
+            //lastas så kan den lastas.
+            //man lägger in car i listan på den sista lediga positionen.
+            //ger car samma position som cartransport.
 
         }
     }
@@ -70,12 +79,14 @@ public class CarTransport extends Cars {
     }
 
     public void unloadCar(Cars car) {
-        int carInList = checkIfCarIsInList(car);
+        int carInList = checkIfCarIsInList(car); //int carInList får värdet av metod checkIfCarIsInList.
         if (carInList == 10) {
-            System.out.println("Car not on truck");
+            System.out.println("Car not on truck"); //om värdet är 10
         }
-        else if (carInList == getNrOfCarsInTruck() -1){
-            carsOnTruck[getNrOfCarsInTruck()-1] = null;
+        else if (carInList == getNrOfCarsInTruck() -1){ //Ex. säg att vi har bilen Bob som är på sista positionen. Då
+            // kommer getNrOfCarsInTruck() returnera 3. Vi vill i detta fallet att den ska returnera 2 eftersom
+            // bob är på element 2.
+            carsOnTruck[carInList] = null; //tömmer platsen bilen stod på.
             car.setPosY(this.getPosY() + 0.1);
             car.setPosX(this.getPosX() + 0.1);
         }
@@ -104,7 +115,7 @@ public class CarTransport extends Cars {
             switch (direction) {
                 case "North":
                     setPosY(posY + currentSpeed);
-                    for (int i = 0; i< getNrOfCarsInTruck(); i++) {
+                    for (int i = 0; i< getNrOfCarsInTruck();  i++){
                         carsOnTruck[i].setPosY(posY + currentSpeed);
                     }
                     break;
@@ -126,6 +137,7 @@ public class CarTransport extends Cars {
                         carsOnTruck[i].setPosX(posX + currentSpeed);
                     }
                     break;
+                    //den här metoden gör så att bilarna åker med biltransporten.
             }
         }
 
