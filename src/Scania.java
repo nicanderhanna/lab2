@@ -12,10 +12,6 @@ public class Scania extends Trucks {
         trailerAngle = 0;
     }
 
-    public double speedFactor() {
-        return 0;
-    }
-
     public double getTrailerAngle(){
         return trailerAngle;
     }
@@ -45,52 +41,31 @@ public class Scania extends Trucks {
         else {trailerAngle = trailerAngle - amount;}
     }
 
-
-
-    public void truckMove(){
-        if (trailerAngle > 0){
-            System.out.println("Truck can't move while trailer is up");
-        }
-        else{
-            this.move();
+@Override
+    public void move() {
+        String direction = getDirection();
+        double posY = getPosY();
+        double posX = getPosX();
+        double currentSpeed = getCurrentSpeed();
+    if (trailerAngle > 0){
+        System.out.println("Truck can't move while trailer is up");
+    }
+    else {
+        switch (direction) {
+            case "North":
+                setPosY(posY + currentSpeed);
+                break;
+            case "South":
+                setPosY(posY - currentSpeed);
+                break;
+            case "West":
+                setPosX( posX - currentSpeed);
+                break;
+            case "East":
+                setPosX( posX + currentSpeed);
+                break;
         }
     }
 
-
-
-
-
-
-
-
-
-
-
-/*    @Override
-    public void move() {
-        double posX = getPosX();
-        //double posY = getPosY();
-        double currentSpeed = getCurrentSpeed();
-        String direction = getDirection();
-        if (trailerAngle > 0) {
-            System.out.println("Truck can't move while trailer is up");
-        }
-        else {
-            switch (direction) {
-                case "North":
-                    double posY = getPosY() + currentSpeed;
-                    break;
-                case "South":
-                    posY = posY - currentSpeed;
-                    break;
-                case "West":
-                    posX = posX - currentSpeed;
-                    break;
-                case "East":
-                    posX = posX + currentSpeed;
-                    break;
-            }
-        }
-    }*/
-
 }
+    }
