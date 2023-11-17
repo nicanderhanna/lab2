@@ -70,8 +70,9 @@ public class testCarTransport {
     @Test
     public void testMove(){
         carTransport.loadCar(scania);
+        carTransport.trailerUp();
         carTransport.startEngine();
-        carTransport.move();
+        carTransport.truckMove();
         assertTrue(carTransport.getPosY() == 0.1);
         assertTrue(scania.getPosY() == 0.1);
     }

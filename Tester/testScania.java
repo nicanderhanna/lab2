@@ -46,11 +46,11 @@ public class testScania {
     @Test
     public void testMove(){
         scania.trailerUp(30);
-        scania.move();
+        scania.truckMove();
         assertTrue(scania.getPosY() == 0);
         scania.trailerDown(30);
         scania.startEngine();
-        scania.move();
+        scania.truckMove();
         assertTrue(scania.getPosY()==0.1);
     }
 

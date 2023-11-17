@@ -12,7 +12,7 @@ public class Scania extends Cars {
         trailerAngle = 0;
     }
 
-    public double getTrailerAngle(){
+    public double getTrailerAngle() {
         return trailerAngle;
     }
 
@@ -21,12 +21,11 @@ public class Scania extends Cars {
         boolean b = this.getCurrentSpeed() != 0;
         if (b) {
             System.out.println("Can't move trailer when Truck is in moving");
-        }
-
-        else if (trailerAngle + amount > 70) {
+        } else if (trailerAngle + amount > 70) {
             trailerAngle = 70;
+        } else {
+            trailerAngle = trailerAngle + amount;
         }
-        else{trailerAngle = trailerAngle + amount;}
 
     }
 
@@ -34,42 +33,24 @@ public class Scania extends Cars {
         boolean b = this.getCurrentSpeed() != 0;
         if (b) {
             System.out.println("Can't move trailer when Truck is in moving");
-        }
-        else if (trailerAngle - amount < 0) {
+        } else if (trailerAngle - amount < 0) {
             trailerAngle = 0;
+        } else {
+            trailerAngle = trailerAngle - amount;
         }
-        else {trailerAngle = trailerAngle - amount;}
     }
 
     public double speedFactor() {
         return 50;
     }
 
-    @Override
-    public void move() {
-        String direction = getDirection();
-        double posY = getPosY();
-        double posX = getPosX();
-        double currentSpeed = getCurrentSpeed();
-    if (trailerAngle > 0){
-        System.out.println("Truck can't move while trailer is up");
-    }
-    else {
-        switch (direction) {
-            case "North":
-                setPosY(posY + currentSpeed);
-                break;
-            case "South":
-                setPosY(posY - currentSpeed);
-                break;
-            case "West":
-                setPosX( posX - currentSpeed);
-                break;
-            case "East":
-                setPosX( posX + currentSpeed);
-                break;
+    public void truckMove(){
+        if (trailerAngle > 0){
+            System.out.println("Truck can't move while trailer is up");
+        }
+        else{
+            super.move();
         }
     }
 
 }
-    }
